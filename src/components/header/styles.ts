@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: moderateScale(40),
+    paddingBottom: moderateScale(10),
   },
   navBarTitleBox: {
     flexDirection: 'row',

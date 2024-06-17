@@ -8,16 +8,17 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.WHITE,
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: moderateScale(20)
+    marginLeft: moderateScale(20),
   },
   input: {
     borderRadius: moderateScale(5),
-    height: moderateScale(40),
+    height: moderateScale(49),
     paddingHorizontal: moderateScale(5),
     backgroundColor: Colors.WHITE,
     color: Colors.BLACK,
     width: moderateScale(265),
     marginHorizontal: moderateScale(5),
+    textAlignVertical:'center'
   },
   close: { 
     height: moderateScale(50), 

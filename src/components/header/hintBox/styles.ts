@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 import { Colors, FontFamily } from '../../../theme';
-import { moderateScale } from '../../../utils';
+import { isAndroid, moderateScale } from '../../../utils';
 
 export const styles = StyleSheet.create({
   hintBox: {
     position: 'absolute',
     top: moderateScale(50.3),
-    right: moderateScale(-1),
+    right: isAndroid() ? moderateScale(-3) : moderateScale(-1),
     padding: moderateScale(10),
     borderWidth: 1,
     borderTopWidth: 0,
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     borderBottomRightRadius: moderateScale(8),
     minHeight: moderateScale(40),
     maxHeight: moderateScale(120),
-    width: moderateScale(316.9),
+    width: moderateScale(317),
     backgroundColor: Colors.WHITE,
   },
   itemBox: {
