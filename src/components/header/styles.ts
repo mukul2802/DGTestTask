@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-native';
-import { Colors, FontFamily, FontSize } from '../../theme';
-import { moderateScale } from '../../utils';
+import {StyleSheet} from 'react-native';
+import {Colors, FontFamily, FontSize} from '../../theme';
+import {moderateScale} from '../../utils';
 
 export const styles = StyleSheet.create({
   navBar: {
     width: '100%',
-    height: moderateScale(75),
+    height: moderateScale(90),
     justifyContent: 'center',
     position: 'absolute',
     zIndex: 1,
@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingBottom: moderateScale(10),
+    paddingBottom: moderateScale(20),
   },
   navBarTitleBox: {
     flexDirection: 'row',
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
   titleText: {
     fontSize: FontSize.F24,
     fontFamily: FontFamily.TitilliumWebRegular,
-    color: Colors.HEADERTITLE,
+    color: Colors.WHITE,
     marginLeft: moderateScale(15),
   },
   crossIcon: {

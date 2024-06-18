@@ -21,7 +21,7 @@ export const fetchData = async (page: number): Promise<PageData> => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(loadData(page));
-      }, 2000); // 2 second delay for demonstration
+      }, 200);
     });
   } catch (error) {
     console.error('Error fetching data: ', error);

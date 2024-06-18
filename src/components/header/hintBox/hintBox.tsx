@@ -6,15 +6,16 @@ import {
   ListRenderItem,
   Keyboard,
 } from 'react-native';
-import { styles } from './styles';
-import { updatedContentItem } from '../../../utils/type';
-import { FlatList } from 'react-native-gesture-handler';
+import {styles} from './styles';
+import {updatedContentItem} from '../../../utils/type';
+import {FlatList} from 'react-native-gesture-handler';
 
 interface HintBoxProps {
   searchedHints: updatedContentItem[];
   setSearch: (text: string) => void;
   onSearch: (t: string, isSearching: boolean) => void;
   setHintBox: (visible: boolean) => void;
+  setIsSearching: (t: boolean) => void;
 }
 
 export const HintBox: React.FC<HintBoxProps> = ({
@@ -22,15 +23,17 @@ export const HintBox: React.FC<HintBoxProps> = ({
   setSearch,
   onSearch,
   setHintBox,
+  setIsSearching,
 }) => {
   const selectSearchedItem = (item: updatedContentItem) => {
     setSearch(item.name);
     onSearch(item.name, true);
     setHintBox(false);
+    setIsSearching(false);
     Keyboard.dismiss();
   };
 
-  const renderList: ListRenderItem<updatedContentItem> = ({ item }) => {
+  const renderList: ListRenderItem<updatedContentItem> = ({item}) => {
     return (
       <TouchableOpacity
         activeOpacity={1}
@@ -51,9 +54,11 @@ export const HintBox: React.FC<HintBoxProps> = ({
         keyboardShouldPersistTaps={'handled'}
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
-        ListEmptyComponent={() => (!searchedHints.length ?
-          <Text style={styles.emptyMessageStyle}>No Data Found</Text>
-          : null)}
+        ListEmptyComponent={() =>
+          !searchedHints.length ? (
+            <Text style={styles.emptyMessageStyle}>No Data Found</Text>
+          ) : null
+        }
       />
     </View>
   );

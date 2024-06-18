@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-native';
-import { Colors, FontFamily } from '../../../theme';
-import { isAndroid, moderateScale } from '../../../utils';
+import {StyleSheet} from 'react-native';
+import {Colors, FontFamily} from '../../../theme';
+import {isAndroid, moderateScale} from '../../../utils';
 
 export const styles = StyleSheet.create({
   hintBox: {
     position: 'absolute',
-    top: moderateScale(50.3),
+    top: moderateScale(45.3),
     right: isAndroid() ? moderateScale(-3) : moderateScale(-1),
     padding: moderateScale(10),
     borderWidth: 1,
@@ -27,11 +27,11 @@ export const styles = StyleSheet.create({
   },
   separator: {
     height: moderateScale(1),
-    backgroundColor: Colors.LightGray
+    backgroundColor: Colors.LightGray,
   },
   emptyMessageStyle: {
     color: Colors.DANGER,
     fontSize: moderateScale(16),
     fontFamily: FontFamily.TitilliumWebRegular,
-  }
+  },
 });

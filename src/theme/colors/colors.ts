@@ -5,5 +5,5 @@ export const Colors = {
   TITLE: '#999999',
   TRANSPARENT: 'transparent',
   LightGray: '#808080',
-  DANGER: '#FF0000'
+  DANGER: '#FF0000',
 };

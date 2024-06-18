@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { TextInput, TouchableOpacity, View } from 'react-native';
-import { styles } from './styles';
-import { updatedContentItem } from '../../../utils/type';
-import { HintBox } from '../hintBox';
-import { Colors } from '../../../theme';
+import React, {useState} from 'react';
+import {TextInput, TouchableOpacity, View} from 'react-native';
+import {styles} from './styles';
+import {updatedContentItem} from '../../../utils/type';
+import {HintBox} from '../hintBox';
+import {Colors} from '../../../theme';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { moderateScale } from '../../../utils';
+import {moderateScale} from '../../../utils';
 
 interface SearchInputProps {
   search: string;
   setSearch: (text: string) => void;
-  onSearch: (t: string, isSearching: boolean) => void;
+  onSearch: (t: string) => void;
   setIsSearching: (t: boolean) => void;
   suggestion: updatedContentItem[];
 }
@@ -20,14 +20,14 @@ const SearchInput: React.FC<SearchInputProps> = ({
   setSearch,
   onSearch,
   suggestion,
-  setIsSearching
+  setIsSearching,
 }) => {
   const [searchedHints, setSearchedHints] = useState<updatedContentItem[]>([]);
   const [hintBox, setHintBox] = useState<boolean>(false);
 
   const handleSearch = (text: string) => {
     if (text.length === 0) {
-      onSearch('', false);
+      onSearch('');
     }
     const filtered = suggestion.filter(movie =>
       movie.name.toLowerCase().includes(text.toLowerCase()),
@@ -46,15 +46,16 @@ const SearchInput: React.FC<SearchInputProps> = ({
           onChangeText={handleSearch}
           placeholderTextColor={Colors.LightGray}
           value={search}
+          maxLength={15}
         />
         <TouchableOpacity
           style={styles.close}
           onPress={() => {
             setSearch('');
-            onSearch('', false);
+            onSearch('');
             setIsSearching(false);
           }}>
-          <Icon name="close-outline" size={moderateScale(20)} color={Colors.BLACK} />
+          <Icon name="close" size={moderateScale(20)} color={Colors.BLACK} />
         </TouchableOpacity>
       </View>
       {search.trim().length !== 0 && hintBox && (
@@ -63,6 +64,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
           setSearch={setSearch}
           onSearch={onSearch}
           setHintBox={setHintBox}
+          setIsSearching={setIsSearching}
         />
       )}
     </>

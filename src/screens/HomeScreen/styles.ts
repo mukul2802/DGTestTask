@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
-import { Colors } from '../../theme';
-import { moderateScale, verticalScale } from '../../utils';
+import {StyleSheet} from 'react-native';
+import {Colors} from '../../theme';
+import {moderateScale, verticalScale} from '../../utils';
 
 export const styles = StyleSheet.create({
   mainContainer: {
@@ -26,9 +26,9 @@ export const styles = StyleSheet.create({
   },
   loadingContainer: {
     width: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   loadingText: {
-    color: Colors.WHITE
-  }
+    color: Colors.WHITE,
+  },
 });
